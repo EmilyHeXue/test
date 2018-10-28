@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Start Project</title>
+		<link rel="stylesheet" href="http://at.alicdn.com/t/font_882831_zx0tlxhssc.css" />
+		<link rel="stylesheet" href="//at.alicdn.com/t/font_889392_7e9la14u2aq.css" />
+		<style>   
+			html,body{
+				height: 100%;
+			}
+			/*reset*/
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			a{
+				text-decoration: none;
+			}
+			ul{
+				list-style: none;
+			}
+			/*common css*/
+			.clearfix::after{
+				content: '';
+				display: block;
+				clear: both;
+			}
+			.button{
+				display: inline-block;
+				font-size: 18px;
+				color: #fff;
+				padding: 5px 10px;
+				background: #f7ba3e;
+				border-radius: 4px;
+				opacity: 0.8;
+			}
+			.button:hover{
+				opacity:1;
+			}
+			body{
+				font:14px/1.5 arial;
+				background: #fff;
+				color: #444;
+			}
+			.layout{
+				margin: 0 auto;
+			}
+			/*header*/
+			header{
+				position: relative;
+				min-height: 600px;
+				background: url(img/1.jpg);
+				background-size: cover;
+				background-attachment: scroll;
+    			background-position: center center;
+			}
+			.bg-light-gray {
+			    background-color: #f7f7f7;
+			    margin-top: 20px;
+			    padding-bottom: 20px;
+			}
+			/*遮罩*/
+			/*header:before{
+				content: '';
+				display: block;
+				position: absolute;
+				top:0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				background: rgba(255,255,255,0.2);
+			}*/
+			header .logo{
+				color: #ccc;
+				font-size: 24px;
+				float: left;
+				margin-top: 10px;
+				margin-left: 10px;
+				color: #f7ba3e;
+				font-size: 30px;
+			}
+			header .nav{
+				float: right;
+			}
+			header .nav li{
+				float: left;
+				margin: 10px;
+			}
+			header .nav a{
+				display: block;
+				padding: 5px 10px;
+				color: #fff;
+				border-radius: 5px;
+				font-size: 16px;
+				font-weight: bold;
+			}
+			header .nav a:hover{
+				background: #f7ba3e;
+			}
+			header .intro{
+				position: absolute;
+				transform: translate(-50%,-50%);
+				color: #fff;
+				top:50%;
+				left: 50%;
+				text-align: center;
+			}
+			header .intro h1{
+				font-size: 32px;
+				font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			}
+			header .intro h2{
+				font-size: 40px;
+				margin-top: 20px;	
+			}
+			header .intro .button{
+				margin-top: 20px;	
+			}
+			
+			/*section*/
+			section{
+				margin-top:30px;
+				text-align: center;
+				padding: 0 50px;
+			}
+			section > h2{
+				font-size: 30px;
+			}
+			section > p{
+				font-size: 10px;
+			}
+			section > ul .iconfont{
+				border-radius: 50%;
+			    font-size: 50px;
+			    color: #ffffff;
+			    padding: 10px;
+			    background: #61d8fe;
+	   
+			}
+			
+			section .family-intro > li{
+				float: left;
+				width: 33.33%;
+				padding: 20px;
+			}
+			@media screen and (max-width: 768px) {
+				section .family-intro > li{
+					float: left;
+					padding: 20px;
+					width: 100%;
+					text-align: center;
+				}
+			}
+			
+			section > ul p{
+				margin-top: 10px;
+			}
+			@media screen and (min-width: 768px) {
+				.line{
+				width: calc(50% - 20px);
+				margin: 30px 10px;
+				float: left;
+			}		
+			}
+			section .family figure{
+				width:calc(33.33% - 20px);
+				margin: 30px 10px;
+				float: left;
+			}		
+			/*section .family line{
+			}*/
+			
+			section .family a{
+				display: inline-block;
+				height: 100%;
+			}
+		    section .portfolio-link{
+		    	color: #666;
+		    	background: #fff;
+		    	padding-bottom: 10px;
+		    	
+		    }
+		    .portfolio{
+		    	position: relative;
+		    }
+		    .portfolio-hover{
+		    	background: rgba(254, 209, 54, .8);
+			    position: absolute;
+			    width: 100%;
+			    height: 100%;
+			    opacity: 0;
+			    transition: all ease .5s;
+		    }
+		    section .family .portfolio-hover:hover{
+			    opacity: 1;
+		    }
+		    .portfolio-hover i{
+		    	position: absolute;
+			    font-size: 50px;
+			    top: 30%;
+			    color: #fff;
+			    right: 40%;
+		    }
+			section .family a img{
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+			section .family img:hover{
+			    background: rgba(254, 209, 54, .9);
+			   
+			}
+			section .family figcaption{
+				font-size: 18px;
+				font-weight:bold;
+				margin-top: 10px;
+			}
+			section .family p{
+				color: #666;
+				font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			}
+			section .timeline > li{
+				position: relative;
+				margin-top: 40px;
+			}
+			section .timeline > li:nth-child(odd){
+				padding-right: calc(50% - 50px);
+				text-align: right;
+			}
+			section .timeline > li::after{
+				content: '';
+				display: block;
+				clear: both;
+			}
+			section .timeline img,
+			section .timeline .img
+			{
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+				border: 7px solid #d9d9d9;
+				
+			}
+			section .timeline .img{
+				padding-top: 25px;
+				font-size: 12px;
+				display: inline-block;
+				text-align: center;
+				border: 7px solid #d9d9d9;
+				background: #2196f3;
+    			color: #fff
+			}
+			section .timeline > li:nth-child(odd) dl{
+				margin-right: 120px;
+			}
+			section .timeline > li:nth-child(odd) img{
+				float: right;
+			}
+			section .timeline > li:nth-child(even){
+				padding-left: calc(50% - 50px);
+				text-align: left;
+			}
+			section .timeline > li:nth-child(even) dl{
+				margin-left: 120px;
+			}
+			section .timeline > li:nth-child(even) img{
+				float: left;
+			}
+			section .timeline dt{
+				font-size: 16px;
+				font-weight: bold;
+			}
+			section .timeline dd:nth-child(2){
+				color: #4CAF50;
+			}
+			section .timeline > li::before{
+				content: '';
+				display: inline-block;
+				height: 100%;
+				width:4px;
+				background: #d9d9d9;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-left: 0;
+				z-index: -1;
+			}
+			section .timeline > li:last-child::before{
+				height: 0;
+			}
+			/*box*/
+			section .box img{
+				border-radius: 50%;
+				border: 7px solid #d9d9d9;
+			}
+			section .box h4{
+				margin-top: 10px;
+			    margin-bottom: 0;
+			    text-transform: none;
+			    color: #000;
+			    font-size: 20px;
+			}
+			section .box ul{
+				padding: 5px 0;
+			}
+			section .box ul > li{
+				display: inline-block;
+			    padding: 0 5px;
+			}
+			section .box ul > li > a{
+				display: block;
+			    background-color: #222;
+			    width: 40px;
+			    border-radius: 100%;
+			    font-size: 20px;
+			    line-height: 40px;
+			    color: #fff;
+			}
+			section .box ul > li > a:hover{
+				background: #FFA500;
+			}
+			section .large{
+				font-size: 16px;
+			}
+			/*	footer*/
+			/*section .container{
+				width: 100%;
+				background: #f4f4f4;
+			}
+			section .row{
+				display: flex;
+				margin-right: -15px;
+    			margin-left: -15px;
+			}
+			section .row a{
+				padding: 12px;
+			}
+			section .row a img{
+				padding: 12px;
+				display: block;
+			}*/
+			footer{
+				position: relative;
+			}
+			footer .container{
+				width: 100%;
+				padding: 0 10px;
+			}
+			
+			.container .advertisement{
+				text-align: center;
+			}
+		
+			.container .advertisement a {
+				display: inline-block;
+				width: calc(25% - 10px);
+			}
+			
+			@media screen and (max-width: 768px) {
+					.container .advertisement a{
+						display: inline-block;
+						width: calc(50% - 10px);
+				}
+			}
+			.container .advertisement a img{
+			    margin: 30px auto;
+			}
+			
+		
+			.contact{
+				min-height: 450px;
+			    background-image: url(img/1.jpg);
+			    background-size: cover;
+				background-attachment: scroll;
+    			background-position: center center;
+			}
+			
+			.contact .box{
+				text-align: center;
+			}
+			
+			@media screen and (min-width: 750px) {
+				.row{
+					justify-content: center;
+					display: flex;	
+				}
+			}
+			@media screen and (max-width: 750px) {
+				.row{
+					justify-content: center;	
+				}
+			}
+			
+
+			.row .list{
+					width: 100%;
+				}
+			.row{
+				
+    			padding: 25px 0;
+			}
+			
+			.item input{
+			    padding: 10px;
+			    margin-bottom: 25px;
+			    border-radius: 5px;
+			    width: 70%;
+			}
+			.list textarea{
+				height: 170px;
+			    width: 70%;
+			    padding: 20px;
+			    border-radius: 5px;
+		        font: 400 13.3333px Arial;
+			}
+			
+			.btn button{
+				color: #fff;
+			    background-color: #fed136;
+			    border-color: #fed136;
+			    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+			    text-transform: uppercase;
+			    font-weight: 700;
+			    border-radius: 10px;
+			    font-size: 18px;
+			    padding: 15px 20px;
+			    margin-bottom: 10px;
+			}
+			.btn button:hover{
+				background: #ffc600;
+			}
+			
+			.end{
+				text-align: center;
+			}
+			
+			@media screen and (max-width:750px ) {
+				.end .row {
+					text-align: center;
+			    	width: 750px;
+				}
+				.end .row {
+				    padding-right: 15px;
+				    padding-left: 15px;
+				    margin-right: auto;
+				    margin-left: auto;
+				}
+			}
+			.open span{
+				height: 40px;
+				line-height: 40px;
+			    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+			    text-transform: none;
+			}
+			.open ul li{
+				display: inline-block;
+    			padding: 0 5px;
+			}
+			.open ul li a{
+				display: block;
+			    background-color: #222;
+			    width: 40px;
+			    border-radius: 100%;
+			    font-size: 20px;
+			    line-height: 40px;
+			    color: #fff;
+			}
+			.list-inline ul{
+				margin-bottom: 0;
+			    line-height: 40px;
+			    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+			    text-transform: none;
+			}
+			.list-inline ul li{
+				display: inline-block;
+			    padding-right: 5px;
+			    padding-left: 5px;	
+			}
+			.list-inline ul li a{
+			    color: #fed136;
+			}
+			@media screen and (min-width: 750px) {
+				.end .row{
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+				.row .open{
+					width: 33.33%;
+    				padding: 20px;
+				}
+				.row .list-inline{
+					width: 33.33%;
+    				padding: 20px;
+				}
+			}
+		</style>   
+<body>   
+	<header>
+		<div class="navbar layout clearfix">
+			<a class="logo" href="#">Start Project</a>
+			<ul class="nav">
+				<li><a href="#">SERVICES</a></li>
+				<li><a href="#">PORTFOLIO</a></li>
+				<li><a href="#">ABOUT</a></li>
+				<li><a href="#">TEAM</a></li>
+				<li><a href="#">CONTACT</a></li>
+			</ul>
+		</div>
+		<div class="intro layout">
+				<h1>Welcome To Our Studio</h1>
+				<h2>IT'S NICE TO MEET YOU</h2>
+				<a class="button" href="#">TELL ME MORE</a>
+			</div>
+	</header>
+	<main class="layout">
+		<section>
+			<h2>家族介绍</h2>
+			<p>关于各个家族介绍</p>
+			<ul class="family-intro clearfix">
+				<li>
+					<span class="iconfont icon-family1"></span>
+					<h3>史塔克家族</h3>
+					<p>维斯特洛的设定大致基于中世纪的欧洲，但是绝大多数情节特指英伦三岛和爱尔兰的结合。七大王国对应的则是中世纪早期英格兰的盎格鲁-撒克逊七国时代。</p>
+				</li>
+				<li>
+					<span class="iconfont icon-family2"></span>
+					<h3>兰尼斯特家族</h3>
+					<p>兰开斯特家族(House of Lancaster)，系金雀花家族(House of Plantagenets，或称安茹家族House of Angevins)的分支，其家族的始祖为(冈特的)约翰(John of Gaunt)。</p>
+				</li>
+				<li>
+					<span class="iconfont icon-family3"></span>
+					<h3>坦格利安家族</h3>
+					<p>坦格利安家族的封地原先是黑水湾内的岛屿城堡龙石岛，在征服七大王国后坐镇七国首都君临城，统治维斯特洛近三百年之久。</p>
+				</li>
+			</ul>
+		</section>
+		<section class="bg-light-gray">
+			<h2>PORTFOLIO</h2>
+			<p>Lorem ipsum dolor sit amet consectetur.</p>
+			<div class="family clearfix">
+				<figure class="line">
+					<a href="" class="portfolio-link">
+						
+						<div class="portfolio">
+							<div class="portfolio-hover">
+							<i class="iconfont icon-family1"></i>
+						</div>
+						<img src="img/001.png" alt=""/>
+						</div>
+						
+						<figcaption>Round Icons</figcaption>
+						<p>Graphic Design</p>
+					</a>
+				</figure>
+				<figure class="line">
+					<a href="" class="portfolio-link">
+						
+						<div class="portfolio">
+							<div class="portfolio-hover">
+							<i class="iconfont icon-family1"></i>
+						</div>
+						<img src="img/001.png" alt=""/>
+						</div>
+						
+						<figcaption>Round Icons</figcaption>
+						<p>Graphic Design</p>
+					</a>
+				</figure>
+				<figure class="line">
+					<a href="" class="portfolio-link">
+						
+						<div class="portfolio">
+							<div class="portfolio-hover">
+							<i class="iconfont icon-family1"></i>
+						</div>
+						<img src="img/001.png" alt=""/>
+						</div>
+						
+						<figcaption>Round Icons</figcaption>
+						<p>Graphic Design</p>
+					</a>
+				</figure>
+				<figure class="line">
+					<a href="" class="portfolio-link">
+						
+						<div class="portfolio">
+							<div class="portfolio-hover">
+							<i class="iconfont icon-family1"></i>
+						</div>
+						<img src="img/001.png" alt=""/>
+						</div>
+						
+						<figcaption>Round Icons</figcaption>
+						<p>Graphic Design</p>
+					</a>
+				</figure>
+				<figure class="line">
+					<a href="" class="portfolio-link">
+						
+						<div class="portfolio">
+							<div class="portfolio-hover">
+							<i class="iconfont icon-family1"></i>
+						</div>
+						<img src="img/001.png" alt=""/>
+						</div>
+						
+						<figcaption>Round Icons</figcaption>
+						<p>Graphic Design</p>
+					</a>
+				</figure >
+				<figure class="line">
+					<a href="" class="portfolio-link">
+						
+						<div class="portfolio">
+							<div class="portfolio-hover">
+							<i class="iconfont icon-family1"></i>
+						</div>
+						<img src="img/001.png" alt=""/>
+						</div>
+						
+						<figcaption>Round Icons</figcaption>
+						<p>Graphic Design</p>
+					</a>
+				</figure>
+			</div>
+		</section>
+		<section>
+			<h2>ABOUT</h2>
+			<p>Lorem ipsum dolor sit amet consectetur.</p>
+			<ul class="timeline">
+				<li>
+					<img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/about/1.jpg" alt=""/>
+					<dl>
+						<dt>2009-2011</dt>
+						<dd>Our Humble Beginnings</dd>
+						<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
+
+</dd>
+					</dl>
+				</li>
+				<li>
+					<img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/about/1.jpg" alt=""/>
+					<dl>
+						<dt>2009-2011</dt>
+						<dd>Our Humble Beginnings</dd>
+						<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
+
+</dd>
+					</dl>
+				</li>
+				<li>
+					<img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/about/1.jpg" alt=""/>
+					<dl>
+						<dt>2009-2011</dt>
+						<dd>Our Humble Beginnings</dd>
+						<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
+
+</dd>
+					</dl>
+				</li>
+				<li>
+					<img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/about/1.jpg" alt=""/>
+					<dl>
+						<dt>2009-2011</dt>
+						<dd>Our Humble Beginnings</dd>
+						<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
+
+</dd>
+					</dl>
+				</li>
+				<li>
+					<span class="img">
+						Our Humble Beginnings
+					</span>
+				</li>
+			</ul>
+		</section>
+		<section class="bg-light-gray">
+			<h2>OUR AMAZING TEAM</h2>
+			<p>Lorem ipsum dolor sit amet consectetur.</p>
+			<div class="family clearfix">
+				<figure class="box">
+					<a href="#">
+						<img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/team/5.jpg" alt=""/>
+						<h4>Kay Garland</h4>
+						<p>Lead Designer</p>
+						<ul>
+							<li><a href="#" class="iconfont icon-facebook"></a></li>
+							<li><a href="#" class="iconfont icon-twitter"></a></li>
+							<li><a href="#" class="iconfont icon-linkedin"></a></li>
+						</ul>
+					</a>
+				</figure>
+				<figure class="box">
+					<a href="">
+						<img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/team/7.jpg" alt=""/>
+						<h4>Round Icons</h4>
+						<p>Graphic Design</p>
+						<ul>
+							<li><a href="#" class="iconfont icon-facebook"></a></li>
+							<li><a href="#" class="iconfont icon-twitter"></a></li>
+							<li><a href="#" class="iconfont icon-linkedin"></a></li>
+						</ul>
+					</a>
+				</figure>
+				<figure class="box">
+					<a href="#">
+						<img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/team/6.jpg" alt=""/>
+						<h4>Round Icons</h4>
+						<p>Graphic Design</p>
+						<ul>
+							<li><a href="#" class="iconfont icon-facebook"></a></li>
+							<li><a href="#" class="iconfont icon-twitter"></a></li>
+							<li><a href="#" class="iconfont icon-linkedin"></a></li>
+						</ul>
+					</a>
+				</figure>
+			</div>
+			<p class="large">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque,
+				 laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.
+			</p>
+		</section>
+
+	</main>
+	<footer>
+		<div class="container">
+			<div class="advertisement">
+				<a href=""><img src="img/designmodo.jpg" alt="" /></a>
+				<a href=""><img src="img/themeforest.jpg" alt="" /></a>
+				<a href=""><img src="img/designmodo.jpg" alt="" /></a>
+				<a href=""><img src="img/themeforest.jpg" alt="" /></a>
+			</div>
+		</div>
+		<div class="contact">
+			<div class="box">
+				<section>
+					<h2>CONTACT US</h2>
+					<p>Lorem ipsum dolor sit amet consectetur.</p>
+				</section>
+				<div class="row clearfix">
+					<div class="list">
+						<div class="item">
+							<input placeholder="Your Name *"/>
+						</div>
+						<div class="item">
+							<input placeholder="Your Email *"/>
+						</div>
+						<div class="item">
+							<input placeholder="Your Phone *"/>
+						</div>
+					</div>
+					<div class="list">
+						<textarea placeholder="Your Message *"></textarea>
+					</div>
+					
+				</div>
+				<div class="btn">
+						<button>Send Message</button>
+				</div>
+			</div>
+		</div>
+		<div class="end">
+			<div class="row">
+				<div class="open">
+					<span class="copyright">Copyright © Your Website 2014</span>
+				</div>
+				<div class="open">
+					<ul>
+						<li><a href="#" class="iconfont icon-facebook"></a></li>
+						<li><a href="#" class="iconfont icon-twitter"></a></li>
+						<li><a href="#" class="iconfont icon-linkedin"></a></li>
+					</ul>
+				</div>
+				<div class="list-inline">
+					<ul class="quicklinks">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                    </ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>   
+</html>  
